@@ -75,7 +75,7 @@ void CPlayerComponent::InitInputs()
 	m_pInputComponent->RegisterAction("player", "pitch", [this](int activationMode, float value) {m_mouseDeltaRotation.x = -value; });
 	m_pInputComponent->BindAction("player", "pitch", eAID_KeyboardMouse, eKI_MouseX);
 
-	m_pInputComponent->RegisterAction("player", "jump", [this](int activationMode, float value) {	Jump(); });
+	m_pInputComponent->RegisterAction("player", "jump", [this](int activationMode, float value) {  if (activationMode == eAAM_OnPress) Jump(); });
 	m_pInputComponent->BindAction("player", "jump", eAID_KeyboardMouse, eKI_Space);
 }
 
